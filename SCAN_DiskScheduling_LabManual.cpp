@@ -28,7 +28,7 @@ int main()
     sort(request_queue.begin(), request_queue.end());
 
     int head_index = 0;
-    for (int i = 0; i < request_queue.size(); i++)
+    for (int i = 0; i < N; i++)
     {
         if (request_queue[i] >= initial_head)
         {
@@ -43,7 +43,7 @@ int main()
 
     if (direction == "right")
     {
-        for (int i = head_index; i < request_queue.size(); i++)
+        for (int i = head_index; i < N; i++)
         {
             service_order.push_back(request_queue[i]);
             total_movement += abs(current_head - request_queue[i]);
@@ -63,7 +63,7 @@ int main()
             current_head = request_queue[i];
         }
     }
-    else if (direction == "left")
+    else
     {
         for (int i = head_index - 1; i >= 0; i--)
         {
@@ -78,7 +78,7 @@ int main()
             current_head = 0;
         }
 
-        for (int i = head_index; i < request_queue.size(); i++)
+        for (int i = head_index; i < N; i++)
         {
             service_order.push_back(request_queue[i]);
             total_movement += abs(current_head - request_queue[i]);
